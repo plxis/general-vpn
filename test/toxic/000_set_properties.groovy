@@ -1,0 +1,12 @@
+memory.homePath = input.parentFile.canonicalPath
+memory.awsProfile = memory.awsProfile ?: 'default'
+memory.awsRegion = memory.awsRegion ?: 'us-east-1'
+memory.shipyardImage = memory.shipyardImage ?: 'docker.mycompany.invalid/shipyard:latest-dev'
+memory.realm = memory.realm ?: 'lab'
+memory.domain = memory.domain ?: memory.realm + '.mycompany.invalid'
+memory.suffix = memory.suffix ?: "-${System.getenv('USER')}"
+memory.environmentFile=memory.environmentFile ?: "${memory.homePath}/resources/environment.json".toString()
+memory.toxicArtifactsDirectory=new File(memory["job.artifactsDir"] ?: "./gen/results").canonicalPath
+memory.tmpDir="${memory.toxicArtifactsDirectory}/tmp"
+memory.context = memory.context ?: "vpn${memory.suffix}"
+memory.foundryContext = memory.foundryContext ?: "fdry${memory.suffix}"

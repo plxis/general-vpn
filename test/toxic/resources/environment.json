@@ -1,0 +1,29 @@
+{
+  "name": "general-vpn",
+  "repository": "dev",
+  "modules": {
+    "general-vpn": {
+      "type": "terraform",
+      "version": "latest",
+      "aws_region": "%awsRegion%",
+      "aws_profile": "%awsProfile%",
+      "tf-working-dir": "/tf-work",
+      "preserve-working-dir" : true,
+      "tf-state-bucket": "foundry-%realm%",
+      "vars": {
+        "context": "%context%",
+        "foundry_state_bucket": "foundry-%realm%",
+        "foundry_state_key": "terraform-states/site-foundry/terraform.tfstate%suffix%",
+        "aws_region": "%awsRegion%",
+        "log_group": "general-vpn-%suffix%",
+        "vpn_private_ip": "172.4.3.10",
+        "vpn_dest_ip": "1.2.3.4",
+        "vpn_dest_tcp_port": "4500",
+        "vpn_dest_udp_port": "500",
+        "vpn_dest_subnet": "161.1.2.3/32",
+        "vpn_dest_secret": "preshared-secret-key",
+        "COMMENT_1": "Consider adding dpdaction = none | clear | hold | restart and closeaction"
+      }
+    }
+  }
+}
